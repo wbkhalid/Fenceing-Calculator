@@ -1,0 +1,82 @@
+
+
+const panelWidthColorBond = 3;
+const postSpacingColorBond = 6;
+const panelWidthPool = 4;
+const postSpacingPool = 8;
+const panelAccessories = 2;
+const postAccessories = 4;
+const railCount = 2;
+const cPostCount = 1;
+const capCount = 1;
+const screwCount = 8;
+const bracketCount = 4;
+const gateCount = 1;
+
+function fencingCalculator(length, height, material) {
+  let fencePanels,
+    posts,
+    accessories,
+    rails,
+    cPosts,
+    caps,
+    screws,
+    brackets,
+    gates;
+
+  if (material === 'color bond') {
+    fencePanels = Math.ceil(length / panelWidthColorBond);
+    posts = Math.ceil(length / postSpacingColorBond);
+    rails = fencePanels * railCount;
+    screws = fencePanels * screwCount;
+    brackets = fencePanels * bracketCount;
+  } else if (material === 'pool') {
+    fencePanels = Math.ceil(length / panelWidthPool);
+    posts = Math.ceil(length / postSpacingPool);
+    rails = fencePanels * railCount;
+    screws = fencePanels * screwCount;
+    brackets = fencePanels * bracketCount;
+  } else {
+    console.log('Invalid material type');
+    return;
+  }
+
+  accessories = fencePanels * panelAccessories + posts * postAccessories;
+  cPosts = posts * cPostCount;
+  caps = posts * capCount;
+  gates = Math.ceil(length / 50) * gateCount;
+
+  return {
+    fencePanels,
+    posts,
+    accessories,
+    rails,
+    cPosts,
+    caps,
+    screws,
+    brackets,
+    gates,
+  };
+}
+
+function calculateMaterials() {
+  let length = document.getElementById('length').value;
+  let height = document.getElementById('height').value;
+  let material = document.getElementById('material').value;
+  let materialsList = fencingCalculator(length, height, material);
+
+  let output = '';
+  output += '<h2>Materials List</h2>';
+  output += '<p>Fence Panels: ' + materialsList.fencePanels + '</p>';
+  output += '<p>Posts: ' + materialsList.posts + '</p>';
+  output += '<p>Accessories: ' + materialsList.accessories + '</p>';
+  output += '<p>Rails: ' + materialsList.rails + '</p>';
+  output += '<p>C-Posts: ' + materialsList.cPosts + '</p>';
+  output += '<p>Caps: ' + materialsList.caps + '</p>';
+  output += '<p>Screws: ' + materialsList.screws + '</p>';
+  output += '<p>Brackets: ' + materialsList.brackets + '</p>';
+  output += '<p>Gates: ' + materialsList.gates + '</p>';
+
+  let outputDiv = document.getElementById('output');
+  outputDiv.innerHTML = output;
+}

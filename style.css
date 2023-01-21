@@ -1,0 +1,19 @@
+#fence-calculator {
+    width: 300px;
+    margin: 0 auto;
+    text-align: left;
+  }
+  
+  #fence-calculator label {
+    font-weight: bold;
+    margin-right: 10px;
+  }
+  
+  #fence-calculator input[type="number"] {
+    width: 50px;
+  }
+  
+  #result {
+    margin-top: 20px;
+  }
+  
