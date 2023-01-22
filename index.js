@@ -1,4 +1,3 @@
-
 const panelWidthColorBond = 3;
 const postSpacingColorBond = 6;
 const panelWidthPool = 4;
@@ -12,8 +11,6 @@ const screwCount = 8;
 const bracketCount = 4;
 const gateCount = 1;
 
-
-
 function fencingCalculator(length, height, material) {
   let fencePanels,
     posts,
@@ -23,17 +20,18 @@ function fencingCalculator(length, height, material) {
     caps,
     screws,
     brackets,
-    gates;
-
-
+    gates,
+    totalAmount;
 
   if (material === 'color bond') {
+    totalAmount= length*height*20
     fencePanels = Math.ceil(length / panelWidthColorBond);
-    posts = Math.ceil((length / postSpacingColorBond)+1);
+    posts = Math.ceil(length / postSpacingColorBond + 1);
     rails = fencePanels * railCount;
     screws = fencePanels * screwCount;
     brackets = fencePanels * bracketCount;
   } else if (material === 'pool') {
+    totalAmount= length*height*25
     fencePanels = Math.ceil(length / panelWidthPool);
     posts = Math.ceil(length / postSpacingPool);
     rails = fencePanels * railCount;
@@ -59,6 +57,7 @@ function fencingCalculator(length, height, material) {
     screws,
     brackets,
     gates,
+    totalAmount
   };
 }
 
@@ -70,16 +69,17 @@ function calculateMaterials() {
 
   let output = '';
   output += `<h2>Materials List</h2>`;
-  output += `<p>Fence Panels: ${materialsList.fencePanels} </p>`;
-  output += `<p>Posts:  ${materialsList.posts} </p>`;
-  output += `<p>Accessories:  ${ materialsList.accessories } </p>`;
-  output += `<p>Rails:  ${ materialsList.rails }</p>`;
-  output += `<p>C-Posts:  ${ materialsList.cPosts } </p>`;
-  output += `<p>Caps:  ${ materialsList.caps } </p>`;
-  output += `<p>Screws:  ${materialsList.screws } </p>`;
-  output += `<p>Brackets:  ${ materialsList.brackets } </p>`;
-  output += `<p>Gates:  ${ materialsList.gates } </p>`;
-  document.getElementById("output").style.display = "block";
+  output += `<h3>Fence Panels: ${materialsList.fencePanels} </h3>`;
+  output += `<h3>Posts:  ${materialsList.posts} </h3>`;
+  output += `<h3>Accessories:  ${materialsList.accessories} </h3>`;
+  output += `<h3>Rails:  ${materialsList.rails}</h3>`;
+  output += `<h3>C-Posts:  ${materialsList.cPosts} </h3>`;
+  output += `<h3>Caps:  ${materialsList.caps} </h3>`;
+  output += `<h3>Screws:  ${materialsList.screws} </h3>`;
+  output += `<h3>Brackets:  ${materialsList.brackets} </h3>`;
+  output += `<h3>Gates:  ${materialsList.gates} </h3>`;
+  output += `<h2>TotalAmount:  ${materialsList.totalAmount} </h2>`;
+  document.getElementById('output').style.display = 'block';
   let outputDiv = document.getElementById('output');
   outputDiv.innerHTML = output;
 }
