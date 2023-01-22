@@ -1,5 +1,4 @@
 
-
 const panelWidthColorBond = 3;
 const postSpacingColorBond = 6;
 const panelWidthPool = 4;
@@ -13,6 +12,8 @@ const screwCount = 8;
 const bracketCount = 4;
 const gateCount = 1;
 
+
+
 function fencingCalculator(length, height, material) {
   let fencePanels,
     posts,
@@ -24,9 +25,11 @@ function fencingCalculator(length, height, material) {
     brackets,
     gates;
 
+
+
   if (material === 'color bond') {
     fencePanels = Math.ceil(length / panelWidthColorBond);
-    posts = Math.ceil(length / postSpacingColorBond);
+    posts = Math.ceil((length / postSpacingColorBond)+1);
     rails = fencePanels * railCount;
     screws = fencePanels * screwCount;
     brackets = fencePanels * bracketCount;
@@ -66,17 +69,17 @@ function calculateMaterials() {
   let materialsList = fencingCalculator(length, height, material);
 
   let output = '';
-  output += '<h2>Materials List</h2>';
-  output += '<p>Fence Panels: ' + materialsList.fencePanels + '</p>';
-  output += '<p>Posts: ' + materialsList.posts + '</p>';
-  output += '<p>Accessories: ' + materialsList.accessories + '</p>';
-  output += '<p>Rails: ' + materialsList.rails + '</p>';
-  output += '<p>C-Posts: ' + materialsList.cPosts + '</p>';
-  output += '<p>Caps: ' + materialsList.caps + '</p>';
-  output += '<p>Screws: ' + materialsList.screws + '</p>';
-  output += '<p>Brackets: ' + materialsList.brackets + '</p>';
-  output += '<p>Gates: ' + materialsList.gates + '</p>';
-
+  output += `<h2>Materials List</h2>`;
+  output += `<p>Fence Panels: ${materialsList.fencePanels} </p>`;
+  output += `<p>Posts:  ${materialsList.posts} </p>`;
+  output += `<p>Accessories:  ${ materialsList.accessories } </p>`;
+  output += `<p>Rails:  ${ materialsList.rails }</p>`;
+  output += `<p>C-Posts:  ${ materialsList.cPosts } </p>`;
+  output += `<p>Caps:  ${ materialsList.caps } </p>`;
+  output += `<p>Screws:  ${materialsList.screws } </p>`;
+  output += `<p>Brackets:  ${ materialsList.brackets } </p>`;
+  output += `<p>Gates:  ${ materialsList.gates } </p>`;
+  document.getElementById("output").style.display = "block";
   let outputDiv = document.getElementById('output');
   outputDiv.innerHTML = output;
 }

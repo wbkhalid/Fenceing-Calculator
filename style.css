@@ -1,19 +1,69 @@
-#fence-calculator {
-    width: 300px;
-    margin: 0 auto;
-    text-align: left;
-  }
-  
-  #fence-calculator label {
-    font-weight: bold;
-    margin-right: 10px;
-  }
-  
-  #fence-calculator input[type="number"] {
-    width: 50px;
-  }
-  
-  #result {
-    margin-top: 20px;
-  }
-  
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+.main_div {
+  display: grid;
+  place-content: center;
+}
+
+h1 {
+  margin: 2rem;
+  text-transform: uppercase;
+}
+
+.container {
+  max-width: 600px;
+  box-shadow: 0px 0px 10px 3px rgba(153, 153, 153, 1);
+  padding: 2rem;
+  border-radius: 1rem;
+  margin-bottom: 2rem;
+}
+
+.input_container {
+  padding: 0.5rem;
+}
+
+.label_heading {
+  font-weight: bold;
+}
+
+.input {
+  height: 1.5rem;
+  padding: 1rem 0.5rem;
+  font-size: 1rem;
+  background-color: rgb(230, 226, 226);
+  border: 1px solid black;
+  border-radius: 1rem;
+}
+
+.select_heading{
+  font-weight: bold;
+}
+#material {
+  width: 6rem;
+  height: 2rem;
+  margin-left: 3rem;
+  border-radius: 1rem;
+  cursor: pointer;
+}
+
+.button {
+  padding: 0.5rem 1rem;
+  margin: .5rem;
+  font-weight: bold;
+  font-size: 1rem;
+  border-radius: 1rem;
+  background-color: rgb(230, 226, 226);
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+.container_2 {
+  font-size: 1rem;
+}
+
+#output {
+  display: none;
+}
